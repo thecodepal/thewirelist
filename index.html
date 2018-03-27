@@ -11,17 +11,19 @@
 		<div id="mobileViewport">
 			<div id="groupMviewport">
 				<div class="ui masthead vertical segment" style="border-bottom: 1px solid #dddddd; text-align: center;">
-					<h1 class="ui center aligned header">Groups</h1>
-					<button class="ui basic button">
+					<h2 class="ui header">Groups</h2>
+					<button class="ui icon button">
 						<i class="icon cog"></i>
-						Settings
+					</button>
+					<button id="searchBarToggleBtn" class="ui icon button">
+						<i class="icon search"></i>
 					</button>
 					<button class="ui basic button" id="newProjectLaunchBtn">
 						<i class="icon user"></i>
 						New Project
 					</button>
 				</div>
-				<div class="ui masthead vertical segment" style="border-bottom: 2px solid #dddddd; text-align: center;">
+				<div id="searchSector" class="ui masthead vertical segment" style="border-bottom: 1px solid #dddddd; text-align: center;">
 					<div class="ui search">
 						<div class="ui icon input">
 							<input onkeyup="searchSuggest()" class="prompt" type="text" placeholder="Search">
@@ -43,6 +45,14 @@
 							var groupCat = [
 								{ title : "school" }
 							];
+						}
+						$('#searchSector')
+							.transition('fade')
+						;
+						document.getElementById("searchBarToggleBtn").onclick = function () {
+							$('#searchSector')
+								.transition('fade')
+							;
 						}
 					</script>
 				</div>
