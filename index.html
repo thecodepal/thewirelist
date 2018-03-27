@@ -1,0 +1,73 @@
+<!dotype html>
+<html>
+	<head>
+		<title>TheWireList</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" href="https://semantic-ui.com/dist/semantic.min.css">
+		<script src="https://semantic-ui.com/javascript/library/jquery.min.js"></script>
+		<script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+	</head>
+	<body>
+		<div id="mobileViewport">
+			<div id="groupMviewport">
+				<div class="ui masthead vertical segment" style="border-bottom: 1px solid #dddddd; text-align: center;">
+					<h1 class="ui center aligned header">Groups</h1>
+					<button class="ui basic button">
+						<i class="icon cog"></i>
+						Settings
+					</button>
+					<button class="ui basic button" id="newProjectLaunchBtn">
+						<i class="icon user"></i>
+						New Project
+					</button>
+				</div>
+				<div class="ui masthead vertical segment" style="border-bottom: 2px solid #dddddd; text-align: center;">
+					<div class="ui search">
+						<div class="ui icon input">
+							<input onkeyup="searchSuggest()" class="prompt" type="text" placeholder="Search">
+							<i class="search icon"></i>
+						</div>
+						<div class="results"></div>
+					</div>
+					<script>
+						document.getElementById("newProjectLaunchBtn").onclick = function () {
+							$('#newContentConfirm')
+								.modal('show')
+							;
+						}
+						function searchSuggest() {
+							$('.ui.search')
+								.search({
+								source: groupCat
+							});
+							var groupCat = [
+								{ title : "school" }
+							];
+						}
+					</script>
+				</div>
+			</div>
+			<div class="ui basic modal" id="newContentConfirm">
+				<div class="ui icon header">
+					<i class="lightbulb icon"></i>
+					New Project
+				</div>
+				<div class="content">
+					<p>Choose the type of group that fits you the most.</p>
+					<p><strong class="ui blue header">Group : </strong>Create a group with unlimited number of members to work on a single project.</p>
+					<p><strong class="ui purple header">Organization : </strong>Create a new organization to manage more than one project with unlimited number of members.</p>
+				</div>
+				<div style="text-align: center;">
+					<div class="ui blue inverted button" style="margin-top: 10px;">
+						<i class="plus icon"></i>
+						Create Group
+					</div>
+					<div class="ui purple inverted button" style="margin-top: 10px;">
+						<i class="plus icon"></i>
+						Create Organization
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
